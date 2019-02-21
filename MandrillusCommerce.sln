@@ -1,0 +1,34 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{D4B4CFAF-2C10-4050-9CA8-BE92F3B509AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{639B007F-AE91-4236-B3E1-00DE782A13FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{13DB23CB-43B6-467B-8AD7-F4FCA716B526}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Layer", "Domain Layer", "{2F322AA9-A311-4120-BC6E-FA62C2D1BE22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{39B15B7F-BFEC-47CB-B7F3-609DC995A055}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{89DEB0AF-3C6C-4FE8-BB82-B8C6F59AE158}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentations", "{7C187BC9-0749-4DB7-ADC9-5EDC4AF0DA53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandrillus.Domain", "Mandrillus.Domain\Mandrillus.Domain.csproj", "{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C} = {2F322AA9-A311-4120-BC6E-FA62C2D1BE22}
+	EndGlobalSection
+EndGlobal
