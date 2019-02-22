@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandrillus.Domain", "Mandrillus.Domain\Mandrillus.Domain.csproj", "{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandrillus.Contracts", "Mandrillus.Contracts\Mandrillus.Contracts.csproj", "{20CCB8A5-0BE3-4D59-992D-75C90484DDB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,21 @@ Global
 		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CCB8A5-0BE3-4D59-992D-75C90484DDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CCB8A5-0BE3-4D59-992D-75C90484DDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CCB8A5-0BE3-4D59-992D-75C90484DDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CCB8A5-0BE3-4D59-992D-75C90484DDB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C} = {2F322AA9-A311-4120-BC6E-FA62C2D1BE22}
+		{20CCB8A5-0BE3-4D59-992D-75C90484DDB1} = {89DEB0AF-3C6C-4FE8-BB82-B8C6F59AE158}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.StandardHeader = $2
+		$0.VersionControlPolicy = $3
+		description = An e-Commerce application using the latest .NET Core edition with Visual Studio for Mac 2019 Preview
 	EndGlobalSection
 EndGlobal
