@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
+    <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
   </ItemGroup>
 </Project>
