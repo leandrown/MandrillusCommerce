@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Factories\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
+  </ItemGroup>
+</Project>

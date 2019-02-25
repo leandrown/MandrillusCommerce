@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 
 namespace Mandrillus.Contracts.Validators
 {
-   public interface IValidator
+   public interface IValidator<T>
    {
-      bool IsValid();
+      bool IsValid(T entity);
    }
 }
