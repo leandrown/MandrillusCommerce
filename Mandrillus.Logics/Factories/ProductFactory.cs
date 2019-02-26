@@ -34,7 +34,7 @@ namespace Mandrillus.Logics.Factories
          throw new NotImplementedException();
       }
 
-      public async Task<ICollection<Product>> GetAsync()
+      public async Task<ICollection<Product>> GetAllAsync()
       {
          if (!await _db.Products.AnyAsync())
             return null;

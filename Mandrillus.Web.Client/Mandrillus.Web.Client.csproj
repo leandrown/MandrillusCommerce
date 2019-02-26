@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
+    <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
+    <ProjectReference Include="..\Mandrillus.Logics\Mandrillus.Logics.csproj" />
+  </ItemGroup>
+</Project>

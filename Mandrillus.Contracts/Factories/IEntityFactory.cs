@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Mandrillus.Domain.Entities.BaseModels;
 using Mandrillus.Domain.Entities.Catalog;
@@ -11,6 +11,6 @@ namespace Mandrillus.Contracts.Factories
       Task<bool> CreateAsync(T entity);
       Task<T> GetAsync(int id);
       Task<bool> RemoveAsync(int id);
-      Task<ICollection<T>> GetAsync();
+      Task<ICollection<T>> GetAllAsync();
    }
 }
