@@ -8,5 +8,9 @@
     <Folder Include="Entities\" />
     <Folder Include="Entities\Catalog\" />
     <Folder Include="Entities\BaseModels\" />
+    <Folder Include="Identity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
   </ItemGroup>
 </Project>

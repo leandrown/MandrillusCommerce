@@ -1,15 +1,28 @@
 using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Mandrillus.Domain.Entities.Catalog;
+using Mandrillus.Domain.Identity;
 
 namespace Mandrillus.Data.Contexts
 {
-   public class MandrillusDbContext : DbContext
+   public class MandrillusDbContext : IdentityDbContext<Person, Role, string>
    {
       public MandrillusDbContext(DbContextOptions<MandrillusDbContext> builder)
          : base(builder) { }
 
       public DbSet<Product> Products { get; set; }
+
+      protected override void OnModelCreating(ModelBuilder builder)
+      {
+         base.OnModelCreating(builder);
+         builder.Entity<Person>().ToTable("People").Property(p => p.Id).HasColumnName("PersonId");
+         builder.Entity<Role>().ToTable("Roles").Property(p => p.Id).HasColumnName("RoleId");
+         builder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
+         builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogin");
+
+      }
 
       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
       {
