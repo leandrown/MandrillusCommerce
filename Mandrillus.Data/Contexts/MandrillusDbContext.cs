@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Mandrillus.Domain.Entities.Catalog;
 
@@ -13,7 +13,14 @@ namespace Mandrillus.Data.Contexts
 
       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
       {
-         string connection = @"DataSource=localhost; Initial Catalog=MandrillusCommerceDB; Integrated Security=True; Pooling=False";
+         // Use DataSource to create a local database on Windows or a SQLite database on Mac.
+         // If you want to test more options, see the docs: https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-2.2&tabs=visual-studio-mac
+         // To enable Kerberos auth: https://github.com/dotnet/corefx/issues/22184
+         // Docker: https://github.com/dotnet/dotnet-docker-samples/issues/89
+         // Migrations: https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-2.0#introduction-to-migrations
+
+         //string connection = @"DataSource=localhost; Initial Catalog=MandrillusCommerceDB; Integrated Security=True; Pooling=False";
+         string connection = @"Server=tcp:localhost; Database=MandrillusCommerceDB; User ID=sa; Password=m1n3cr@wl3r; MultipleActiveResultSets=True";
          optionsBuilder.UseSqlServer(connection);
       }
    }

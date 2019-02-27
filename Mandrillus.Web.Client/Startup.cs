@@ -14,9 +14,11 @@ using Mandrillus.Contracts.Repository;
 using Mandrillus.Contracts.Validators;
 using Mandrillus.Data.Contexts;
 using Mandrillus.Domain.Entities.Catalog;
+using Mandrillus.Logics.Factories;
 using Mandrillus.Logics.Handlers;
 using Mandrillus.Logics.Managers;
 using Mandrillus.Logics.Validators;
+using Mandrillus.Contracts.Factories;
 
 namespace Mandrillus.Web.Client
 {
@@ -45,6 +47,8 @@ namespace Mandrillus.Web.Client
          services.AddTransient<ILogger, Logger>();
          services.AddTransient<IValidator<Product>, ProductValidator>();
          services.AddTransient<IExceptionHandler, ExceptionHandler>();
+         services.AddTransient<IEntityFactory<Product>, ProductFactory>();
+         services.AddTransient<IProductRepository, ProductManager>();
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,18 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="ContextFactory\" />
-    <Folder Include="Contexts\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
-  </ItemGroup>
+   <PropertyGroup>
+      <TargetFramework>netcoreapp2.2</TargetFramework>
+   </PropertyGroup>
+   <ItemGroup>
+      <Folder Include="ContextFactory\" />
+      <Folder Include="Contexts\" />
+   </ItemGroup>
+   <ItemGroup>
+      <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.2.2" />
+      <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+   </ItemGroup>
+   <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.2" />
+      <PackageReference Include="NuGet.CommandLine" Version="4.9.3">
+         <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+         <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.2" />
+   </ItemGroup>
+   <ItemGroup>
+      <ProjectReference Include="..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
+   </ItemGroup>
 </Project>
