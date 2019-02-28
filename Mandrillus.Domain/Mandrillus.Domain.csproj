@@ -9,6 +9,10 @@
     <Folder Include="Entities\Catalog\" />
     <Folder Include="Entities\BaseModels\" />
     <Folder Include="Identity\" />
+    <Folder Include="Domains\" />
+    <Folder Include="Domains\Customers\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Entities\Media\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
