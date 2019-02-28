@@ -21,7 +21,7 @@ namespace Mandrillus.Data.Contexts
          builder.Entity<Role>().ToTable("Roles").Property(p => p.Id).HasColumnName("RoleId");
          builder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
          builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogin");
-
+         builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaim").Property(p => p.Id).HasColumnName("UserClaimId");
       }
 
       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
