@@ -37,7 +37,6 @@ namespace Mandrillus.Web.Client
             options.MinimumSameSitePolicy = SameSiteMode.None;
          });
 
-
          services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
          services.AddDbContext<MandrillusDbContext>();
          services.AddIdentity<Person, Role>().AddEntityFrameworkStores<MandrillusDbContext>();

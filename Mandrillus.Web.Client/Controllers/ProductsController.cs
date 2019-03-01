@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,10 +21,10 @@ namespace Mandrillus.Web.Client.Controllers
       }
 
       // GET: Products
-      public async Task<IActionResult> Index()
-      {
-         return View(await Task<ICollection<Product>>.Factory.StartNew(() => _repository.GetAllProducts()));
-      }
+      //public async Task<IActionResult> Index()
+      //{
+      //   return View(await Task<ICollection<Product>>.Factory.StartNew(() => _repository.GetAllProducts()));
+      //}
 
       // GET: Products/Create
       public IActionResult Create()
@@ -32,17 +32,17 @@ namespace Mandrillus.Web.Client.Controllers
          return View();
       }
 
-      [HttpPost]
-      [ValidateAntiForgeryToken]
+      //[HttpPost]
+      //[ValidateAntiForgeryToken]
 
-      public async Task<IActionResult> Create([Bind("Name, Price, Description")] Product product)
-      {
-         if (ModelState.IsValid)
-         {
-            if (await Task<bool>.Factory.StartNew(() => _repository.AddProduct(product)))
-               return RedirectToAction(nameof(Index));
-         }
-         return View(product);
-      }
+      //public async Task<IActionResult> Create([Bind("Name, Price, Description")] Product product)
+      //{
+      //   if (ModelState.IsValid)
+      //   {
+      //      if (await Task<bool>.Factory.StartNew(() => _repository.AddProduct(product)))
+      //         return RedirectToAction(nameof(Index));
+      //   }
+      //   return View(product);
+      //}
    }
 }

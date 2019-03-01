@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mandrillus.Contracts.Factories;
 using Mandrillus.Contracts.Handlers;
 using Mandrillus.Contracts.Repository;
@@ -20,26 +21,26 @@ namespace Mandrillus.Logics.Managers
          _handler = handler;
       }
 
-      public bool AddProduct(Product product)
+      public async Task<bool> AddProduct(Product product)
       {
          if (_validator.IsValid(product))
-            return _handler.Run(() => _factory.CreateAsync(product).Result);
+            return _handler != null && await _handler.Run(() => _factory.CreateAsync(product));
          return false;
       }
 
-      public ICollection<Product> GetAllProducts()
-      {
-         return _handler.Run(() => _factory.GetAllAsync().Result);
-      }
-
-      public Product GetProduct(int id)
+      public Task<Product> GetProduct(int id)
       {
          throw new System.NotImplementedException();
       }
 
-      public bool RemoveProduct(int id)
+      public Task<bool> RemoveProduct(int id)
       {
          throw new System.NotImplementedException();
+      }
+
+      public async Task<ICollection<Product>> GetAllProducts()
+      {
+         return await _handler.Run(() => _factory.GetAllAsync());
       }
    }
 }
