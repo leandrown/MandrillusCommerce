@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Mandrillus.Contracts.Factories;
+using Mandrillus.Contracts.Handlers;
+using Mandrillus.Contracts.Repository;
+using Mandrillus.Contracts.Validators;
+using Mandrillus.Data.Contexts;
+using Mandrillus.Domain.Entities.Catalog;
+using Mandrillus.Domain.Identity;
+using Mandrillus.Logics.Factories;
+using Mandrillus.Logics.Handlers;
+using Mandrillus.Logics.Managers;
+using Mandrillus.Logics.Validators;
 
 namespace Mandrillus.Business.Api
 {
@@ -26,6 +31,13 @@ namespace Mandrillus.Business.Api
       public void ConfigureServices(IServiceCollection services)
       {
          services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+         services.AddDbContext<MandrillusDbContext>();
+         services.AddIdentity<Person, Role>().AddEntityFrameworkStores<MandrillusDbContext>();
+         services.AddTransient<ILogger, Logger>();
+         services.AddTransient<IValidator<Product>, ProductValidator>();
+         services.AddTransient<IExceptionHandler, ExceptionHandler>();
+         services.AddTransient<IEntityFactory<Product>, ProductFactory>();
+         services.AddTransient<IProductRepository, ProductManager>();
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +54,7 @@ namespace Mandrillus.Business.Api
          }
 
          app.UseHttpsRedirection();
+         app.UseStaticFiles();
          app.UseMvc();
       }
    }
