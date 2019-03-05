@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandrillus.Business.Api", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandrillus.Presentation.Client", "Mandrillus.Web.Client\Mandrillus.Presentation.Client\Mandrillus.Presentation.Client.csproj", "{9D6348D8-5A7A-4233-900B-B0D6AF8225D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandrillus.Clients.Test", "Mandrillus.Clients.Test\Mandrillus.Clients.Test.csproj", "{285A2E4C-DB4E-4891-95B1-54A042665939}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{9D6348D8-5A7A-4233-900B-B0D6AF8225D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D6348D8-5A7A-4233-900B-B0D6AF8225D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D6348D8-5A7A-4233-900B-B0D6AF8225D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285A2E4C-DB4E-4891-95B1-54A042665939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285A2E4C-DB4E-4891-95B1-54A042665939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285A2E4C-DB4E-4891-95B1-54A042665939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285A2E4C-DB4E-4891-95B1-54A042665939}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{944B6B19-01C5-4338-B973-E9F3DDC3CF1C} = {2F322AA9-A311-4120-BC6E-FA62C2D1BE22}
@@ -79,6 +85,7 @@ Global
 		{5052E3D3-D680-454F-9A6B-A7BDD06F14EC} = {7C187BC9-0749-4DB7-ADC9-5EDC4AF0DA53}
 		{5A0F37EC-AEBA-4E20-ACE6-F80CD5427A88} = {39B15B7F-BFEC-47CB-B7F3-609DC995A055}
 		{9D6348D8-5A7A-4233-900B-B0D6AF8225D3} = {7C187BC9-0749-4DB7-ADC9-5EDC4AF0DA53}
+		{285A2E4C-DB4E-4891-95B1-54A042665939} = {13DB23CB-43B6-467B-8AD7-F4FCA716B526}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
