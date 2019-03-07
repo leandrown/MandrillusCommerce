@@ -14,4 +14,25 @@
     <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
     <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Mandrillus.Business.Api\appsettings.Development.json" />
+    <None Remove="Mandrillus.Business.Api\Properties\launchSettings.json" />
+    <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.cache" />
+    <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.g.props" />
+    <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.g.targets" />
+    <None Remove="Mandrillus.Business.Api\obj\project.assets.json" />
+    <None Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.assets.cache" />
+    <None Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.RazorAssemblyInfo.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Mandrillus.Business.Api\Program.cs" />
+    <Compile Remove="Mandrillus.Business.Api\Startup.cs" />
+    <Compile Remove="Mandrillus.Business.Api\Controllers\ValuesController.cs" />
+    <Compile Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core">
+      <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.core\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

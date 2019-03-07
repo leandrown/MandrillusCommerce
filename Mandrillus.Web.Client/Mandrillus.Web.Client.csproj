@@ -22,5 +22,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Mandrillus.Presentation.Client\appsettings.json" />
+    <Content Remove="Mandrillus.Presentation.Client\appsettings.Development.json" />
+    <Content Remove="Mandrillus.Presentation.Client\Properties\launchSettings.json" />
+    <Content Remove="Mandrillus.Presentation.Client\obj\project.assets.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Mandrillus.Presentation.Client\Program.cs" />
+    <Compile Remove="Mandrillus.Presentation.Client\Startup.cs" />
+    <Compile Remove="Mandrillus.Presentation.Client\obj\Debug\netcoreapp2.2\Mandrillus.Presentation.Client.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Mandrillus.Presentation.Client\obj\Mandrillus.Presentation.Client.csproj.nuget.cache" />
+    <None Remove="Mandrillus.Presentation.Client\obj\Mandrillus.Presentation.Client.csproj.nuget.g.props" />
+    <None Remove="Mandrillus.Presentation.Client\obj\Mandrillus.Presentation.Client.csproj.nuget.g.targets" />
+    <None Remove="Mandrillus.Presentation.Client\obj\Debug\netcoreapp2.2\Mandrillus.Presentation.Client.assets.cache" />
+    <None Remove="Mandrillus.Presentation.Client\obj\Debug\netcoreapp2.2\Mandrillus.Presentation.Client.csprojAssemblyReference.cache" />
+    <None Remove="Mandrillus.Presentation.Client\obj\Debug\netcoreapp2.2\Mandrillus.Presentation.Client.RazorAssemblyInfo.cache" />
   </ItemGroup>
 </Project>

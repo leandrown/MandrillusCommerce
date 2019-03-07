@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Mandrillus.Contracts.Repository;
 using Mandrillus.Domain.Entities.Catalog;
+
 
 namespace Mandrillus.Business.Api.Controllers
 {
@@ -19,6 +18,7 @@ namespace Mandrillus.Business.Api.Controllers
          _repository = repository;
       }
 
+      [HttpGet]
       public async Task<IEnumerable<Product>> Get()
       {
          return await _repository.GetAllProducts();

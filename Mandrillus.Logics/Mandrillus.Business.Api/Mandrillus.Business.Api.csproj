@@ -1,19 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
-    <ProjectReference Include="..\..\Mandrillus.Data\Mandrillus.Data.csproj" />
-    <ProjectReference Include="..\..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
-    <ProjectReference Include="..\Mandrillus.Logics.csproj" />
-  </ItemGroup>
+   <PropertyGroup>
+      <TargetFramework>netcoreapp2.2</TargetFramework>
+      <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+   </PropertyGroup>
+   <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.App" />
+      <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+   </ItemGroup>
+   <ItemGroup>
+      <ProjectReference Include="..\..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
+      <ProjectReference Include="..\..\Mandrillus.Data\Mandrillus.Data.csproj" />
+      <ProjectReference Include="..\..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
+      <ProjectReference Include="..\Mandrillus.Logics.csproj" />
+   </ItemGroup>
 </Project>

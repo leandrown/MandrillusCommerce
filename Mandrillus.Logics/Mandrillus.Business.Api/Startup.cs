@@ -31,10 +31,11 @@ namespace Mandrillus.Business.Api
       public void ConfigureServices(IServiceCollection services)
       {
          services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-         services.AddCors(option =>
-         {
-            option.AddPolicy("AllowOrigin", builder => builder.WithOrigins(""));
-         });
+         services.AddCors();
+         //services.AddCors(option =>
+         //{
+         //   option.AddPolicy("AllowOrigin", builder => builder.WithOrigins(""));
+         //});
          services.AddDbContext<MandrillusDbContext>();
          services.AddIdentity<Person, Role>().AddEntityFrameworkStores<MandrillusDbContext>();
          services.AddTransient<ILogger, Logger>();
@@ -57,7 +58,7 @@ namespace Mandrillus.Business.Api
             app.UseHsts();
          }
 
-         app.UseHttpsRedirection();
+         // app.UseHttpsRedirection();
          app.UseStaticFiles();
          app.UseMvc();
          app.UseCors("AllowOrigin");
