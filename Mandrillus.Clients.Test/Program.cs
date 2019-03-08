@@ -1,14 +1,14 @@
 using System;
+using System.Linq;
 using System.Net.Http;
 
 namespace Mandrillus.Clients.Test
 {
    public class ProductViewModel
    {
-      public int ProductId { get; set; }
-      public DateTime DateCreated { get; set; }
-      public string ShortDescription { get; set; }
-      public bool IsDownloadable { get; set; }
+      public string Name { get; set; }
+      public int Price { get; set; }
+      public string Description { get; set; }
    }
 
    class Program
@@ -20,7 +20,14 @@ namespace Mandrillus.Clients.Test
 
          using (HttpClient client = new HttpClient())
          {
-            HttpResponseMessage products = client.GetAsync("").Result;
+            HttpResponseMessage results = client.GetAsync("http://localhost:5000/api/values").Result;
+
+            if (results.IsSuccessStatusCode)
+            {
+               string[] values = results.Content.ReadAsAsync<string[]>().Result;
+               values.ToList().ForEach(v => { Console.WriteLine($"value =: {v}"); });
+            }
+            Console.ReadLine();
          }
       }
    }
