@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mandrillus.Data.Migrations
 {
     [DbContext(typeof(MandrillusDbContext))]
-    [Migration("20190228192806_Hutt3344")]
-    partial class Hutt3344
+    [Migration("20190308150341_Drill32")]
+    partial class Drill32
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

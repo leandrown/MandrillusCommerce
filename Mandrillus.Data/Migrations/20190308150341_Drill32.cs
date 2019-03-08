@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mandrillus.Data.Migrations
 {
-    public partial class Hutt3344 : Migration
+    public partial class Drill32 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

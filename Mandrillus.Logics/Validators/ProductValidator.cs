@@ -7,7 +7,8 @@ namespace Mandrillus.Logics.Validators
    {
       public bool IsValid(Product entity)
       {
-         return (entity.ProductId >= 0 && (!string.IsNullOrEmpty(entity.ShortDescription)));
+         return ((!string.IsNullOrEmpty(entity.Name)) && entity.Price > 0 && (!string.IsNullOrEmpty(entity.Description)));
+         //return (entity.ProductId >= 0 && (!string.IsNullOrEmpty(entity.ShortDescription)));
       }
    }
 }

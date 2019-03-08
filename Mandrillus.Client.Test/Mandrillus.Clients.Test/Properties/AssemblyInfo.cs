@@ -7,10 +7,10 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle("Mandrillus.Clients.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Mandrillus")]
+[assembly: AssemblyCompany("Mandrillus Web and Software")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("2019 - Mandrillus Team")]
-[assembly: AssemblyTrademark("Mandrillus' Pizza")]
+[assembly: AssemblyCopyright("2019 - Mandrillus")]
+[assembly: AssemblyTrademark("Mandrillus Team")]
 [assembly: AssemblyCulture("")]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
