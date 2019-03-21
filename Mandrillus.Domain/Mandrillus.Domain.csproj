@@ -13,6 +13,7 @@
     <Folder Include="Domains\Customers\" />
     <Folder Include="Configurations\" />
     <Folder Include="Entities\Media\" />
+    <Folder Include="Configurations\Auth\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
