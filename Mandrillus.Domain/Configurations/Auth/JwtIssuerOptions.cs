@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Mandrillus.Domain.Configurations.Auth
 {
@@ -10,5 +12,9 @@ namespace Mandrillus.Domain.Configurations.Auth
       public DateTime Expiration => IssueDate.Add(ValidUntil);
       public DateTime IssueDate => DateTime.UtcNow;
       public TimeSpan ValidUntil { get; set; } = TimeSpan.FromMinutes(120);
+
+      public Func<Task<string>> JtiGenerator => () => Task.FromResult(Guid.NewGuid().ToString());
+      public SigningCredentials SinSigningCredentials { get; set; }
+      public DateTime? NotBefore { get; set; }
    }
 }
