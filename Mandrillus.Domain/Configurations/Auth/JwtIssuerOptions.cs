@@ -14,7 +14,7 @@ namespace Mandrillus.Domain.Configurations.Auth
       public TimeSpan ValidUntil { get; set; } = TimeSpan.FromMinutes(120);
 
       public Func<Task<string>> JtiGenerator => () => Task.FromResult(Guid.NewGuid().ToString());
-      public SigningCredentials SinSigningCredentials { get; set; }
+      public SigningCredentials SigningCredentials { get; set; }
       public DateTime? NotBefore { get; set; }
    }
 }
