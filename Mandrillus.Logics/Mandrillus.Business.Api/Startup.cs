@@ -1,9 +1,14 @@
-
+using System;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.IdentityModel.Tokens;
 using Mandrillus.Contracts.Factories;
 using Mandrillus.Contracts.Handlers;
 using Mandrillus.Contracts.Repository;
@@ -15,11 +20,15 @@ using Mandrillus.Logics.Factories;
 using Mandrillus.Logics.Handlers;
 using Mandrillus.Logics.Managers;
 using Mandrillus.Logics.Validators;
+using Mandrillus.Domain.Configurations.Auth;
 
 namespace Mandrillus.Business.Api
 {
    public class Startup
    {
+      private const string SecretKey = "s0mBr3R0";
+      private readonly SymmetricSecurityKey _signkey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
+
       public Startup(IConfiguration configuration)
       {
          Configuration = configuration;
@@ -31,13 +40,42 @@ namespace Mandrillus.Business.Api
       public void ConfigureServices(IServiceCollection services)
       {
          services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-         services.AddCors();
-         //services.AddCors(option =>
-         //{
-         //   option.AddPolicy("AllowOrigin", builder => builder.WithOrigins(""));
-         //});
+
          services.AddDbContext<MandrillusDbContext>();
          services.AddIdentity<Person, Role>().AddEntityFrameworkStores<MandrillusDbContext>();
+         services.AddSingleton<ITokenFactory, TokenFactory>();
+         services.TryAddTransient<IHttpContextAccessor, HttpContextAccessor>();
+         JwtIssuerOptions jwtIssuerOptions = new JwtIssuerOptions
+         {
+            Issuer = "webApi",
+            Audience = "localhost:5000",
+            SigningCredentials = new SigningCredentials(_signkey, SecurityAlgorithms.HmacSha256)
+         };
+         TokenValidationParameters tokenValidationParameter = new TokenValidationParameters
+         {
+            ValidateIssuer = true,
+            ValidIssuer = jwtIssuerOptions.Issuer,
+            ValidateAudience = true,
+            ValidAudience = jwtIssuerOptions.Audience,
+
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = _signkey,
+
+            RequireExpirationTime = false,
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+         };
+         services.AddAuthentication(option =>
+         {
+            option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+         }).AddJwtBearer(configOption =>
+         {
+            configOption.ClaimsIssuer = jwtIssuerOptions.Issuer;
+            configOption.TokenValidationParameters = tokenValidationParameter;
+            configOption.SaveToken = true;
+         });
+
          services.AddTransient<ILogger, Logger>();
          services.AddTransient<IValidator<Product>, ProductValidator>();
          services.AddTransient<IExceptionHandler, ExceptionHandler>();

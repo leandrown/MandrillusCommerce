@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
 using Mandrillus.Contracts.Factories;
 using Mandrillus.Domain.Configurations.Auth;
 using Mandrillus.Extensions.Constants;
-using System.Security.Principal;
 
 namespace Mandrillus.Logics.Factories
 {
