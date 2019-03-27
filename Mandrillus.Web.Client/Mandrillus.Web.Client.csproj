@@ -14,7 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
     <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
-    <ProjectReference Include="..\Mandrillus.Logics\Mandrillus.Logics.csproj" />
     <ProjectReference Include="..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>

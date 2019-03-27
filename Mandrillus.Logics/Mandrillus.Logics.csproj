@@ -1,51 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Factories\" />
-    <Folder Include="Handlers\" />
-    <Folder Include="Managers\" />
-    <Folder Include="Validators\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
-    <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
-    <ProjectReference Include="..\Mandrillus.Extensions\Mandrillus.Extensions.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Mandrillus.Business.Api\appsettings.Development.json" />
-    <None Remove="Mandrillus.Business.Api\Properties\launchSettings.json" />
-    <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.cache" />
-    <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.g.props" />
-    <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.g.targets" />
-    <None Remove="Mandrillus.Business.Api\obj\project.assets.json" />
-    <None Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.assets.cache" />
-    <None Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.RazorAssemblyInfo.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Mandrillus.Business.Api\Program.cs" />
-    <Compile Remove="Mandrillus.Business.Api\Startup.cs" />
-    <Compile Remove="Mandrillus.Business.Api\Controllers\ValuesController.cs" />
-    <Compile Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.RazorAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Mvc.Core">
-      <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.core\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.IdentityModel.Tokens">
-      <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.identitymodel.tokens\5.3.0\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IdentityModel.Tokens.Jwt">
-      <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\system.identitymodel.tokens.jwt\5.3.0\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="**/*" />
-    <None Include="**/*" />
-    <None Include="**/*" />
-  </ItemGroup>
+   <PropertyGroup>
+      <TargetFramework>netcoreapp2.2</TargetFramework>
+   </PropertyGroup>
+   <ItemGroup>
+      <Folder Include="Factories\" />
+      <Folder Include="Handlers\" />
+      <Folder Include="Managers\" />
+      <Folder Include="Validators\" />
+   </ItemGroup>
+   <ItemGroup>
+      <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
+      <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
+      <ProjectReference Include="..\Mandrillus.Extensions\Mandrillus.Extensions.csproj" />
+   </ItemGroup>
+   <ItemGroup>
+      <None Remove="Mandrillus.Business.Api\appsettings.Development.json" />
+      <None Remove="Mandrillus.Business.Api\Properties\launchSettings.json" />
+      <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.cache" />
+      <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.g.props" />
+      <None Remove="Mandrillus.Business.Api\obj\Mandrillus.Business.Api.csproj.nuget.g.targets" />
+      <None Remove="Mandrillus.Business.Api\obj\project.assets.json" />
+      <None Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.assets.cache" />
+      <None Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.RazorAssemblyInfo.cache" />
+   </ItemGroup>
+   <ItemGroup>
+      <Compile Remove="Mandrillus.Business.Api\Program.cs" />
+      <Compile Remove="Mandrillus.Business.Api\Startup.cs" />
+      <Compile Remove="Mandrillus.Business.Api\Controllers\ValuesController.cs" />
+      <Compile Remove="Mandrillus.Business.Api\obj\Debug\netcoreapp2.2\Mandrillus.Business.Api.RazorAssemblyInfo.cs" />
+   </ItemGroup>
+   <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Mvc.Core">
+         <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.core\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <Reference Include="Microsoft.IdentityModel.Tokens">
+         <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.identitymodel.tokens\5.3.0\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IdentityModel.Tokens.Jwt">
+         <HintPath>..\..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\system.identitymodel.tokens.jwt\5.3.0\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      </Reference>
+   </ItemGroup>
 </Project>
