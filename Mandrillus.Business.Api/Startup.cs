@@ -1,9 +1,12 @@
 using System;
+using System.Net;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,13 +17,13 @@ using Mandrillus.Contracts.Handlers;
 using Mandrillus.Contracts.Repository;
 using Mandrillus.Contracts.Validators;
 using Mandrillus.Data.Contexts;
+using Mandrillus.Domain.Configurations.Auth;
 using Mandrillus.Domain.Entities.Catalog;
 using Mandrillus.Domain.Identity;
 using Mandrillus.Logics.Factories;
 using Mandrillus.Logics.Handlers;
 using Mandrillus.Logics.Managers;
 using Mandrillus.Logics.Validators;
-using Mandrillus.Domain.Configurations.Auth;
 
 namespace Mandrillus.Business.Api
 {
@@ -42,7 +45,15 @@ namespace Mandrillus.Business.Api
          services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
          services.AddDbContext<MandrillusDbContext>();
-         services.AddIdentity<Person, Role>().AddEntityFrameworkStores<MandrillusDbContext>();
+         services.AddIdentity<Person, Role>(p =>
+         {
+            p.Password.RequireDigit = false;
+            p.Password.RequireLowercase = false;
+            p.Password.RequireUppercase = false;
+            p.Password.RequireNonAlphanumeric = false;
+            p.Password.RequiredLength = 6;
+         }).AddEntityFrameworkStores<MandrillusDbContext>().AddDefaultTokenProviders();
+
          services.AddSingleton<ITokenFactory, TokenFactory>();
          services.TryAddTransient<IHttpContextAccessor, HttpContextAccessor>();
          JwtIssuerOptions jwtIssuerOptions = new JwtIssuerOptions
@@ -96,6 +107,16 @@ namespace Mandrillus.Business.Api
             app.UseHsts();
          }
 
+         app.UseExceptionHandler(builder =>
+         {
+            builder.Run(async context =>
+            {
+               context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+               context.Response.Headers.Add("access-control-Allow-Origin", "*");
+
+               var error = context.Features.Get<IExceptionHandlerFeature>();
+            });
+         });
          // app.UseHttpsRedirection();
          app.UseStaticFiles();
          app.UseMvc();
