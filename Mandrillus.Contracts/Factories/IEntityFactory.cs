@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Mandrillus.Contracts.Factories
 {
-   public interface IEntityFactory<T> where T : BaseEntity
+   public interface IEntityFactory<T> // where T : BaseEntity
    {
       Task<bool> CreateAsync(T entity);
       Task<T> GetAsync(int id);

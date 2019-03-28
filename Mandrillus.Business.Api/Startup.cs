@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Tokens;
+using Mandrillus.Business.Api.Extensions;
 using Mandrillus.Contracts.Factories;
 using Mandrillus.Contracts.Handlers;
 using Mandrillus.Contracts.Repository;
@@ -114,10 +115,16 @@ namespace Mandrillus.Business.Api
                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                context.Response.Headers.Add("access-control-Allow-Origin", "*");
 
-               var error = context.Features.Get<IExceptionHandlerFeature>();
+               IExceptionHandlerFeature error = context.Features.Get<IExceptionHandlerFeature>();
+               if (error != null)
+               {
+                  context.Response.AddApplicationError(error.Error.Message);
+                  await context.Response.WriteAsync(error.Error.Message).ConfigureAwait(false);
+               }
             });
          });
          // app.UseHttpsRedirection();
+         app.UseAuthentication();
          app.UseStaticFiles();
          app.UseMvc();
          app.UseCors("AllowOrigin");
