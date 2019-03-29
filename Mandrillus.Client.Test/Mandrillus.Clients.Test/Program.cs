@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace Mandrillus.Clients.Test
 {
@@ -21,16 +23,25 @@ namespace Mandrillus.Clients.Test
 
          using (HttpClient client = new HttpClient())
          {
-            HttpResponseMessage results = client.GetAsync("http://localhost:5000/api/products").Result;
-
-            if (results.IsSuccessStatusCode)
+            // Anonymous types:
+            var person = new
             {
-               //string[] values = results.Content.ReadAsAsync<string[]>().Result;
-               IEnumerable<ProductViewModel> values = results.Content.ReadAsAsync<IEnumerable<ProductViewModel>>().Result;
-               values.ToList().ForEach(v => { Console.WriteLine($"value =: {v.Name} Price: {v.Price}"); });
+               fname = "Leandro",
+               sname = "Vieira",
+               password = "vieira2019",
+               confirmpassword = "vieira2019",
+               email = "leandrown@outlook.com"
+            };
+            string jObj = JsonConvert.SerializeObject(person);
+            HttpContent content = new StringContent(jObj, Encoding.UTF8, "application/json");
+            HttpResponseMessage result = client.PostAsync("http://localhost:5000/api/accounts/register", content).Result;
+            if (result.IsSuccessStatusCode)
+            {
+               string reMessage = result.Content.ReadAsStringAsync().Result;
+               Console.WriteLine(reMessage);
             }
-            Console.ReadLine();
          }
+         Console.ReadLine();
       }
    }
 }

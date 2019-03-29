@@ -12,14 +12,14 @@
       <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
    </ItemGroup>
    <ItemGroup>
-      <ProjectReference Include="..\..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
-      <ProjectReference Include="..\..\Mandrillus.Data\Mandrillus.Data.csproj" />
-      <ProjectReference Include="..\..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
-      <ProjectReference Include="..\Mandrillus.Logics.csproj" />
-      <ProjectReference Include="..\..\Mandrillus.Extensions\Mandrillus.Extensions.csproj" />
+      <ProjectReference Include="..\Mandrillus.Contracts\Mandrillus.Contracts.csproj" />
+      <ProjectReference Include="..\Mandrillus.Data\Mandrillus.Data.csproj" />
+      <ProjectReference Include="..\Mandrillus.Domain\Mandrillus.Domain.csproj" />
+      <ProjectReference Include="..\Mandrillus.Extensions\Mandrillus.Extensions.csproj" />
+      <ProjectReference Include="..\Mandrillus.Logics\Mandrillus.Logics.csproj" />
    </ItemGroup>
    <ItemGroup>
-     <Folder Include="Extensions\" />
-     <Folder Include="Models\" />
+      <Folder Include="Extensions\" />
+      <Folder Include="Models\" />
    </ItemGroup>
 </Project>

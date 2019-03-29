@@ -18,24 +18,24 @@ namespace Mandrillus.Business.Api.Controllers
    [ApiController]
    public class AccountsController : ControllerBase
    {
-      private IPersonRepository _repository;
       private UserManager<Person> _userManager;
 
-      public AccountsController(IPersonRepository repository, UserManager<Person> userManager)
+      public AccountsController(UserManager<Person> userManager)
       {
-         _repository = repository;
          _userManager = userManager;
       }
 
-      public async Task<IActionResult> Register([FromBody]RegisterViewModel model)
+      [HttpPost, Route("Register")]
+      public async Task<IActionResult> Register(RegisterViewModel model)
       {
          if (!ModelState.IsValid && model.Password != model.ConfirmPassword)
             return BadRequest(ModelState);
          Person userIdentity = new Person
          {
             UserName = model.Email,
-            Email = model.Email
-
+            Email = model.Email,
+            FName = model.FName,
+            SName = model.SName
          };
          IdentityResult result = await _userManager.CreateAsync(userIdentity, model.Password);
          if (!result.Succeeded) return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
