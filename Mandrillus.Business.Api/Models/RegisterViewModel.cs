@@ -18,4 +18,11 @@ namespace Mandrillus.Business.Api.Models
       [Required, DataType(DataType.EmailAddress), JsonProperty("email")]
       public string Email { get; set; }
    }
+   public class LoginViewModel
+   {
+      [Required, DataType(DataType.EmailAddress), JsonProperty("username")]
+      public string UserName { get; set; }
+      [Required, DataType(DataType.Password), JsonProperty("password")]
+      public string Password { get; set; }
+   }
 }
