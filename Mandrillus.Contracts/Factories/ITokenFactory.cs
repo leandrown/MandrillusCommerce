@@ -7,5 +7,6 @@ namespace Mandrillus.Contracts.Factories
    {
       Task<string> GenerateIdentityToken(string username, ClaimsIdentity identity);
       ClaimsIdentity GenerateUserIdentity(string username, string id);
-   }
+        Task GenerateIdentityToken(object username, ClaimsIdentity identity);
+    }
 }

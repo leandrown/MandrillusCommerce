@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Mandrillus.Business.Api.Extensions;
 using Mandrillus.Business.Api.Models;
 using Mandrillus.Contracts.Factories;
@@ -39,6 +40,11 @@ namespace Mandrillus.Business.Api.Controllers
          {
             return BadRequest(ModelState);
          }
+         ClaimsIdentity user = await GetClaimsIdentity(model.UserName, model.Password);
+         if (user == null)
+            return BadRequest(Errors.AddErrorToModelState("login_failure", "invalid password or username", ModelState));
+         string token = await TokenExtension.GenerateJwtTokenAsync(user, _tokenFactory, model.UserName, _options, new JsonSerializerSettings { Formatting = Formatting.Indented });
+         return new OkObjectResult(token);
       }
 
       [HttpPost, Route("Register")]
